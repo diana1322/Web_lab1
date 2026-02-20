@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчет по лабораторной работе</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        h3 {
+            color: #008cba;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .screenshot-description {
+            background-color: #e9f7ff;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .command {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #c7254e; /* Темно-красный для команд */
+        }
+        .highlight {
+            font-weight: bold;
+            color: #28a745; /* Зеленый для важных результатов */
+        }
+        .info {
+            font-style: italic;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Отчет по лабораторной работе: Исследование сетевых служб</h1>
+        <p>В ходе данной лабораторной работы было выполнено подключение к учебному серверу по SSH и исследование сетевых служб с использованием команд <span class="command">ping</span>, <span class="command">nslookup</span> и <span class="command">whois</span>.</p>
+
+        <hr>
+
+        <h2>Пункт 1: Подключение к учебному серверу по SSH</h2>
+        <div class="screenshot-description">
+            <h3>Скриншот 1: Успешное подключение по SSH</h3>
+            <p>На этом скриншоте мы видим успешное подключение к учебному серверу <span class="highlight">kubsu-dev.ru</span> с использованием SSH-клиента Putty.</p>
+            <p class="info">Пользователь <span class="command">u82363</span> успешно авторизован на сервере <span class="command">web-server</span>, что подтверждается командной строкой <span class="command">u82363@web-server:~$</span>. Это свидетельствует о выполнении первого пункта задания.</p>
+        </div>
+        <img src="1.png" alt="Скриншот 1: Подключение по SSH">
+
+        <hr>
+
+        <h2>Пункт 2: Определение IP-адреса веб-сервера kubsu.ru</h2>
+        <div class="screenshot-description">
+            <h3>Скриншот 2: Определение IP-адреса веб-сервера kubsu.ru с помощью команды ping</h3>
+            <p>На этом скриншоте показано выполнение второго пункта лабораторной работы. Я ввела команду <span class="command">ping kubsu.ru</span>. В ответ от сервера я получила подтверждение, что IP-адрес веб-сервера kubsu.ru — это <span class="highlight">185.13.84.92</span>. Команда успешно отправила и получила 7 пакетов данных, подтверждая доступность сервера.</p>
+        </div>
+        <img src="2.png" alt="Скриншот 2: Ping kubsu.ru">
+
+        <hr>
+
+        <h2>Пункт 3: Определение A-записей и MX-записей доменов</h2>
+
+        <div class="screenshot-description">
+            <h3>Скриншот 3: Определение A-записи домена kubsu.ru с помощью nslookup</h3>
+            <p>На этом скриншоте я выполнила часть третьего пункта лабораторной работы, запросив A-запись для домена kubsu.ru.</p>
+            <p>Я ввела команду <span class="command">nslookup kubsu.ru</span>.</p>
+            <p>В ответ сервер предоставил информацию об используемом DNS-сервере (Server: 127.0.0.53, Address: 127.0.0.53#53).</p>
+            <p>Далее, в секции "Non-authoritative answer", я получила запрошенную A-запись: Name: kubsu.ru и Address: <span class="highlight">185.13.84.92</span>. Это подтверждает, что домен kubsu.ru указывает на IP-адрес <span class="highlight">185.13.84.92</span>.</p>
+        </div>
+        <img src="3.png" alt="Скриншот 3: Nslookup kubsu.ru A-запись">
+
+        <div class="screenshot-description">
+            <h3>Скриншот 4: Определение A-записи домена kubsu-dev.ru с помощью nslookup</h3>
+            <p>На этом скриншоте я выполнила следующую часть третьего пункта лабораторной работы, запросив A-запись для домена kubsu-dev.ru.</p>
+            <p>Я ввела команду <span class="command">nslookup kubsu-dev.ru</span>.</p>
+            <p>Как и в предыдущем случае, система отобразила информацию об используемом DNS-сервере.</p>
+            <p>В секции "Non-authoritative answer" я получила A-запись: Name: kubsu-dev.ru и Address: <span class="highlight">212.192.134.135</span>. Это показывает, что домен kubsu-dev.ru связан с IP-адресом <span class="highlight">212.192.134.135</span>.</p>
+        </div>
+        <img src="4.png" alt="Скриншот 4: Nslookup kubsu-dev.ru A-запись">
+
+        <div class="screenshot-description">
+            <h3>Скриншот 7: Определение MX-записей домена kubsu.ru с помощью nslookup</h3>
+            <p>На этом скриншоте я выполнила следующую часть третьего пункта лабораторной работы, запросив MX-записи (записи почтовых серверов) для домена kubsu.ru.</p>
+            <p>Я ввела команду <span class="command">nslookup -type=mx kubsu.ru</span>.</p>
+            <p>Система снова отобразила информацию об используемом DNS-сервере.</p>
+            <p>В секции "Non-authoritative answer" я получила список MX-записей для домена kubsu.ru. Эти записи указывают на почтовые серверы, ответственные за прием электронной почты для данного домена:</p>
+            <ul>
+                <li><span class="highlight">kubsu.ru mail exchanger = 20 mx.kubannet.ru.</span></li>
+                <li><span class="highlight">kubsu.ru mail exchanger = 10 mx2.kubannet.ru.</span></li>
+                <li><span class="highlight">kubsu.ru mail exchanger = 50 mx.kubsu.ru.</span></li>
+            </ul>
+            <p class="info">Числа 20, 10, 50 перед именами серверов являются приоритетами: чем меньше число, тем выше приоритет. Таким образом, <span class="highlight">mx2.kubannet.ru.</span> имеет самый высокий приоритет (10), а <span class="highlight">mx.kubsu.ru.</span> — самый низкий (50).</p>
+        </div>
+        <img src="7.png" alt="Скриншот 7: Nslookup kubsu.ru MX-запись">
+
+        <div class="screenshot-description">
+            <h3>Скриншот 8: Попытка определения MX-записей домена kubsu-dev.ru с помощью nslookup</h3>
+            <p>На этом скриншоте я выполнила последнюю часть третьего пункта лабораторной работы, запросив MX-записи для домена kubsu-dev.ru.</p>
+            <p>Я ввела команду <span class="command">nslookup -type=mx kubsu-dev.ru</span>.</p>
+            <p>Система отобразила информацию об используемом DNS-сервере.</p>
+            <p>Однако в секции "Non-authoritative answer" я получила сообщение <span class="highlight">*** Can't find kubsu-dev.ru: No answer</span>. Это означает, что для домена kubsu-dev.ru <span class="highlight">MX-записи не настроены</span>. Это является важным результатом, так как указывает на отсутствие явных почтовых серверов, предназначенных для приема почты для этого домена.</p>
+            <p class="info">Ниже представлены данные из SOA (Start of Authority) записи домена, которые относятся к настройкам DNS-зоны, а не к MX-записям.</p>
+            <p class="info">Таким образом, скриншот демонстрирует попытку получения MX-записей для kubsu-dev.ru и показывает, что такие записи отсутствуют, что является корректным ответом и закрывает третий пункт задания.</p>
+        </div>
+        <img src="8.png" alt="Скриншот 8: Nslookup kubsu-dev.ru MX-запись">
+
+        <hr>
+
+        <h2>Пункт 4: Определение даты регистрации доменов с помощью whois</h2>
+
+        <div class="screenshot-description">
+            <h3>Скриншот 5: Определение даты регистрации домена kubsu.ru с помощью whois</h3>
+            <p>На этом скриншоте я выполнила часть четвертого пункта лабораторной работы, запросив информацию о регистрации домена kubsu.ru с помощью команды <span class="command">whois</span>.</p>
+            <p>Я ввела команду <span class="command">whois kubsu.ru</span>.</p>
+            <p>В ответ сервер предоставил детальную информацию о домене. Среди этих данных:</p>
+            <ul>
+                <li>domain: KUBSU.RU - подтверждение запрошенного домена.</li>
+                <li>state: REGISTERED, DELEGATED, VERIFIED - статус домена.</li>
+                <li>org: Kuban State University - организация, которой принадлежит домен.</li>
+                <li>registrar: RU-CENTER-RU - регистратор домена.</li>
+                <li><span class="highlight">created: 1998-03-28T12:18:30Z</span> - это и есть искомая дата регистрации домена, <span class="highlight">28 марта 1998 года</span>.</li>
+            </ul>
+            <p class="info">Также указаны даты paid-till (до какого числа оплачена регистрация) и free-date (когда домен освободится, если не будет продлен). В конце также указано Last updated on 2026-02-20T17:28:01Z, что является датой последнего обновления записи whois.</p>
+            <p>Скриншот успешно демонстрирует получение даты регистрации домена kubsu.ru, которая составляет <span class="highlight">28 марта 1998 года</span>.</p>
+        </div>
+        <img src="5.png" alt="Скриншот 5: Whois kubsu.ru">
+
+        <div class="screenshot-description">
+            <h3>Скриншот 6: Определение даты регистрации домена kubsu-dev.ru с помощью whois</h3>
+            <p>На этом скриншоте я выполнила оставшуюся часть четвертого пункта лабораторной работы, запросив информацию о регистрации домена kubsu-dev.ru с помощью команды <span class="command">whois</span>.</p>
+            <p>Я ввела команду <span class="command">whois kubsu-dev.ru</span>.</p>
+            <p>В ответ сервер предоставил детальную информацию о домене, аналогично предыдущему запросу для kubsu.ru. Среди ключевых данных:</p>
+            <ul>
+                <li>domain: KUBSU-DEV.RU - подтверждение запрошенного домена.</li>
+                <li>state: REGISTERED, DELEGATED, VERIFIED - статус домена.</li>
+                <li>person: Private Person - информация о владельце домена (в данном случае скрыта).</li>
+                <li>registrar: WEBNAMES-RU - регистратор домена.</li>
+                <li><span class="highlight">created: 2020-02-12T15:55:06Z</span> - это и есть искомая дата регистрации домена, <span class="highlight">12 февраля 2020 года</span>.</li>
+            </ul>
+            <p class="info">Также указаны даты paid-till и free-date. И дата последнего обновления записи whois.</p>
+            <p>Скриншот успешно демонстрирует получение даты регистрации домена kubsu-dev.ru, которая составляет <span class="highlight">12 февраля 2020 года</span>.</p>
+        </div>
+        <img src="6.png" alt="Скриншот 6: Whois kubsu-dev.ru">
+
+    </div>
+</body>
+</html>
